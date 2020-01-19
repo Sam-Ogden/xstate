@@ -1,5 +1,12 @@
 # xstate
 
+## 4.7.7
+
+### Patch Changes
+
+- c8db035: The `escalate()` action can now take in an expression, which will be evaluated against the `context`, `event`, and `meta` to return the error data.
+- 2a3fea1: The typings for the raise() action have been fixed to allow any event to be raised. This typed behavior will be refined in version 5, to limit raised events to those that the machine accepts.
+
 ## 4.7.6
 
 ### Patch Changes

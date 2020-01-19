@@ -1,5 +1,43 @@
 # @xstate/fsm
 
+## 1.3.0
+
+### Minor Changes
+
+- 7367de2: Added a second, optional, `options` parameter to the `createMachine`. Currently only `actions` map can be put there - similarly how this can be done for `xstate` itself:
+
+  <details>
+  <summary>Example</summary>
+
+  ```js
+  const machine = createMachine({
+    initial: 'idle'
+    states: {
+      idle: {
+        on: {
+          LOAD: {
+            target: 'loading',
+            actions: 'fetchData'
+          }
+        }
+      },
+      loading: {
+        // ...
+      }
+    }
+  }, {
+    actions: {
+      fetchData: () => /* ... */
+    }
+  })
+  ```
+
+  </details>- 3c10215: A `config` property got exposed on created machines. It's the same object which got passed in as argument.
+
+### Patch Changes
+
+- a337473: Fixed entry actions defined on an initial state not being executed.
+
 ## 1.2.0
 
 ### Minor Changes
